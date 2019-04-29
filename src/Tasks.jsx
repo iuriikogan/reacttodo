@@ -29,11 +29,15 @@ class Tasks extends Component {
 		alert(_id)
 	}
 
+	deleteTask = (_id) => {
+		alert('deleted' + _id)
+	}
+
 	// renders html
 	render() {
 		return (
 			<ul className="list-group">
-				{this.state.tasks.map( (task) => <Task task={task} toggleTask={this.toggleTask} key={task._id}></Task> )}
+				{this.state.tasks.map( (task) => <Task task={task} toggleTask={this.toggleTask} deleteTask={this.deleteTask} key={task._id}></Task> )}
 			</ul>
 		)
 	}
