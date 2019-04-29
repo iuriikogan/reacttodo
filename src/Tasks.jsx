@@ -24,11 +24,16 @@ class Tasks extends Component {
 		]
 	}
 
+	// functions
+	toggleTask = (_id) => {
+		alert(_id)
+	}
+
 	// renders html
 	render() {
 		return (
 			<ul className="list-group">
-				{this.state.tasks.map( (task) => <Task task={task} key={task._id}></Task> )}
+				{this.state.tasks.map( (task) => <Task task={task} toggleTask={this.toggleTask} key={task._id}></Task> )}
 			</ul>
 		)
 	}
