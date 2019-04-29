@@ -5,16 +5,14 @@ class Task extends Component {
 
 	// data
 	state = {
-		task: {
-			title: 'Buy fruits'
-		}
+		task: this.props.task
 	}
 
 	// renders html
 	render() {
 		return (
 			<li>
-				<span style={styles.span}>{this.state.task.title}</span>
+				<span style={styles.span}>{this.state.task.name}</span>
 			</li>
 		)
 	}
