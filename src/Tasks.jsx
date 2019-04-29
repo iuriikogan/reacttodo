@@ -14,7 +14,7 @@ class Tasks extends Component {
 			{
 				_id: '2',
 				name: 'Wash car',
-				done: false
+				done: true
 			},
 			{
 				_id: '3',

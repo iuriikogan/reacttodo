@@ -12,7 +12,7 @@ class Task extends Component {
 	render() {
 		return (
 			<li>
-				<span style={styles.span}>{this.state.task.name}</span>
+				<span className={this.state.task.done ? 'done' : ''} style={styles.span}>{this.state.task.name}</span>
 			</li>
 		)
 	}
