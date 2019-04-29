@@ -11,7 +11,7 @@ class Task extends Component {
 	// renders html
 	render() {
 		return (
-			<li>
+			<li className="list-group-item">
 				<span className={this.state.task.done ? 'done' : ''} style={styles.span}>{this.state.task.name}</span>
 			</li>
 		)

@@ -27,7 +27,7 @@ class Tasks extends Component {
 	// renders html
 	render() {
 		return (
-			<ul>
+			<ul className="list-group">
 				{this.state.tasks.map( (task) => <Task task={task} key={task._id}></Task> )}
 			</ul>
 		)
