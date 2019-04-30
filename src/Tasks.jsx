@@ -33,6 +33,12 @@ class Tasks extends Component {
 		this.setState({tasks}) // set tasks to this.state.tasks
 	}
 
+	deleteTask = (_id) => {
+		let tasks = this.state.tasks
+		tasks = tasks.filter( (task) => task._id !== _id )
+		this.setState({tasks})
+	}
+
 	// renders html
 	render() {
 		return (
