@@ -8,3 +8,9 @@ span {
 .done {
 	text-decoration: line-through;
 }
+
+.create-task {
+	margin-bottom: 5px;
+	width: 50vw;
+}
+
