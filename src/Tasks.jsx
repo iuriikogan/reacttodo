@@ -9,7 +9,6 @@ class Tasks extends Component {
 	// data
 	state = {
 		tasks: [
-			
 		]
 	}
 	componentDidMount() {axios.get('http://localhost:3220/api/tasks')
@@ -20,7 +19,8 @@ class Tasks extends Component {
 	.catch( (error) => {
 		console.log(error);
 	})
-}
+	}
+
 
 	// functions
 	toggleTask = (_id) => {
@@ -28,13 +28,18 @@ class Tasks extends Component {
 		let task = tasks.find( (task) => task._id === _id )
 		task.done = !task.done
 		this.setState({tasks}) // set tasks to this.state.tasks
+		axios.patch('http://localhost:3220/api/tasks/' + _id, task)
 	}
+
 
 	deleteTask = (_id) => {
 		let tasks = this.state.tasks
 		tasks = tasks.filter( (task) => task._id !== _id )
 		this.setState({tasks})
+		axios.delete('http://localhost:3220/api/tasks/' + _id)
+	
 	}
+
 
 	// renders html
 	render() {
