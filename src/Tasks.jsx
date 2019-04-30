@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
+import axios from 'axios/dist/axios.min.js';
 import Task from './Task'
+
 
 class Tasks extends Component {
 
@@ -7,23 +9,18 @@ class Tasks extends Component {
 	// data
 	state = {
 		tasks: [
-			{
-				_id: '1',
-				name: 'Buy groceries',
-				done: false
-			},
-			{
-				_id: '2',
-				name: 'Wash car',
-				done: true
-			},
-			{
-				_id: '3',
-				name: 'Go to school',
-				done: false
-			}
+			
 		]
 	}
+	componentDidMount() {axios.get('http://localhost:3220/api/tasks')
+	.then( (response) => {
+		let tasks = response.data
+		this.setState({tasks})
+	})
+	.catch( (error) => {
+		console.log(error);
+	})
+}
 
 	// functions
 	toggleTask = (_id) => {
