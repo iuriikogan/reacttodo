@@ -27,11 +27,10 @@ class Tasks extends Component {
 
 	// functions
 	toggleTask = (_id) => {
-		alert(_id)
-	}
-
-	deleteTask = (_id) => {
-		alert('deleted' + _id)
+		let tasks = this.state.tasks
+		let task = tasks.find( (task) => task._id === _id )
+		task.done = !task.done
+		this.setState({tasks}) // set tasks to this.state.tasks
 	}
 
 	// renders html
