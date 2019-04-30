@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import axios from 'axios/dist/axios.min.js';
+import axios from 'axios/dist/axios.js';
 import Task from './Task'
 
 
@@ -8,10 +8,9 @@ class Tasks extends Component {
 	
 	// data
 	state = {
-		tasks: [
-		]
+		tasks: []
 	}
-	componentDidMount() {axios.get('http://localhost:3220/api/tasks')
+	componentWillMount() {axios.get('http://localhost:3220/api/tasks')
 	.then( (response) => {
 		let tasks = response.data
 		this.setState({tasks})
@@ -20,6 +19,16 @@ class Tasks extends Component {
 		console.log(error);
 	})
 	}
+
+	
+	componentWillReceiveProps(props) {
+		console.log('props.newTask', props.newTask);
+		let tasks = this.state.tasks
+		tasks.push(props.newTask)
+		this.setState({tasks})
+	}
+
+
 
 
 	// functions
@@ -37,10 +46,10 @@ class Tasks extends Component {
 		tasks = tasks.filter( (task) => task._id !== _id )
 		this.setState({tasks})
 		axios.delete('http://localhost:3220/api/tasks/' + _id)
-	
 	}
 
-
+	
+    
 	// renders html
 	render() {
 		return (
@@ -49,7 +58,5 @@ class Tasks extends Component {
 			</ul>
 		)
 	}
-
 }
-
 export default Tasks;
